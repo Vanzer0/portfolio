@@ -1,216 +1,134 @@
-import Image from "next/image";
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ivan Kurt S. Ponce | Mechanical Engineer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .heading { font-family: 'Space Grotesk', sans-serif; }
+        .hero-bg {
+            background: linear-gradient(135deg, #0f172a 0%, #1e2937 100%);
+        }
+        .glass {
+            background: rgba(15, 23, 42, 0.75);
+            backdrop-filter: blur(20px);
+        }
+        .nav-link {
+            position: relative;
+        }
+        .nav-link:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background: #8b5cf6;
+            transition: width 0.3s;
+        }
+        .nav-link:hover:after { width: 100%; }
+        .section-title:after {
+            content: '';
+            position: absolute;
+            width: 70px;
+            height: 3px;
+            background: linear-gradient(to right, #8b5cf6, #c026d3);
+            bottom: -8px;
+            left: 0;
+        }
+    </style>
+</head>
+<body class="bg-slate-950 text-slate-200">
 
-export default function Home() {
-  return (
-    <main className="bg-[#0B1120] text-white min-h-screen">
-
-      {/* HERO */}
-      <section className="container mx-auto px-6 py-20">
-        <div className="grid md:grid-cols-2 gap-10 items-center">
-
-          <div>
-            <p className="text-blue-400 font-medium mb-2">
-              Mechanical Engineering Graduate
-            </p>
-
-            <h1 className="text-5xl md:text-7xl font-bold leading-tight">
-              Ivan Kurt
-              <span className="text-blue-500"> Ponce</span>
-            </h1>
-
-            <p className="text-gray-400 mt-6 text-lg">
-              Detail-oriented Mechanical Engineering graduate with experience
-              in customer service, hospitality, and virtual assistance support.
-              Passionate about solving problems, learning new technologies, and
-              delivering excellent service.
-            </p>
-
-            <div className="mt-8 flex gap-4">
-              <a
-                href="#contact"
-                className="bg-blue-600 hover:bg-blue-700 px-6 py-3 rounded-xl transition"
-              >
-                Contact Me
-              </a>
-
-              <a
-                href="/resume.pdf"
-                className="border border-gray-600 px-6 py-3 rounded-xl hover:bg-white hover:text-black transition"
-              >
-                Download Resume
-              </a>
+    <!-- Navbar -->
+    <nav class="fixed top-0 w-full z-50 glass border-b border-slate-700">
+        <div class="max-w-6xl mx-auto px-6 py-5 flex justify-between items-center">
+            <div class="flex items-center gap-3">
+                <div class="w-9 h-9 bg-gradient-to-br from-violet-500 to-fuchsia-500 rounded-2xl flex items-center justify-center text-white font-bold text-2xl">IK</div>
+                <span class="text-2xl font-semibold heading tracking-tight">Ivan Kurt Ponce</span>
             </div>
-          </div>
-
-          <div className="flex justify-center">
-            <div className="relative">
-
-              <div className="absolute inset-0 bg-blue-500 blur-3xl opacity-30 rounded-full"></div>
-
-              <Image
-                src="/ivan.jpg"
-                alt="Ivan Ponce"
-                width={400}
-                height={400}
-                className="rounded-full border-4 border-blue-500 object-cover relative z-10"
-              />
+            <div class="hidden md:flex gap-8 text-sm font-medium">
+                <a href="#about" class="nav-link hover:text-white">About</a>
+                <a href="#experience" class="nav-link hover:text-white">Experience</a>
+                <a href="#education" class="nav-link hover:text-white">Education</a>
+                <a href="#skills" class="nav-link hover:text-white">Skills</a>
+                <a href="#contact" class="nav-link hover:text-white">Contact</a>
             </div>
-          </div>
-
+            <a href="#" onclick="window.print()" 
+               class="px-6 py-3 bg-white text-slate-900 rounded-2xl font-semibold flex items-center gap-2 hover:bg-violet-100 transition">
+                <i class="fas fa-download"></i> Resume
+            </a>
         </div>
-      </section>
+    </nav>
 
-      {/* ABOUT */}
-      <section className="container mx-auto px-6 py-20">
-        <h2 className="text-4xl font-bold mb-10">
-          About Me
-        </h2>
+    <!-- Hero -->
+    <section class="hero-bg min-h-screen flex items-center pt-20">
+        <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
+            <div class="space-y-8">
+                <h1 class="text-6xl md:text-7xl font-bold heading tracking-tighter leading-none">
+                    Ivan Kurt S. Ponce
+                </h1>
+                <p class="text-3xl text-slate-400">Mechanical Engineer</p>
+                <p class="text-lg text-slate-300 max-w-md">
+                    Passionate engineering graduate with strong technical foundation, excellent communication skills, and proven customer service experience.
+                </p>
+                
+                <div class="flex gap-4">
+                    <a href="#contact" 
+                       class="px-8 py-4 bg-violet-600 hover:bg-violet-500 rounded-3xl font-semibold transition-all flex items-center gap-3">
+                        Get In Touch
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                    <a href="https://github.com" target="_blank"
+                       class="px-8 py-4 border border-slate-600 hover:border-slate-400 rounded-3xl font-medium flex items-center gap-2 transition">
+                        <i class="fab fa-github"></i> GitHub
+                    </a>
+                </div>
+            </div>
 
-        <div className="bg-white/5 backdrop-blur-lg rounded-3xl p-8 border border-white/10">
-          <p className="text-gray-300 text-lg leading-relaxed">
-            I graduated with a Bachelor of Science in Mechanical Engineering
-            from Cebu Institute of Technology – University. My professional
-            experience includes customer-facing roles where I developed strong
-            communication, teamwork, time management, and problem-solving
-            abilities.
-          </p>
+            <!-- Profile Picture -->
+            <div class="flex justify-center md:justify-end">
+                <div class="relative">
+                    <div class="absolute -inset-8 bg-gradient-to-br from-violet-500 via-fuchsia-500 to-cyan-400 rounded-[3rem] blur-3xl opacity-30"></div>
+                    <img src="https://i.imgur.com/YOUR_PHOTO_LINK_HERE.jpg" 
+                         alt="Ivan Kurt S. Ponce"
+                         class="w-80 h-80 md:w-96 md:h-96 object-cover rounded-3xl shadow-2xl ring-8 ring-slate-800/50">
+                </div>
+            </div>
         </div>
-      </section>
+    </section>
 
-      {/* EXPERIENCE */}
-      <section className="container mx-auto px-6 py-20">
-        <h2 className="text-4xl font-bold mb-10">
-          Experience
-        </h2>
-
-        <div className="space-y-6">
-
-          <div className="bg-white/5 p-8 rounded-3xl border border-white/10">
-            <h3 className="text-2xl font-semibold">
-              Intern – The VA Bar Company
-            </h3>
-
-            <p className="text-blue-400">
-              March 2026 – April 2026
-            </p>
-
-            <p className="mt-3 text-gray-300">
-              Assisted with administrative and virtual support tasks while
-              learning industry-standard business workflows and digital tools.
-            </p>
-          </div>
-
-          <div className="bg-white/5 p-8 rounded-3xl border border-white/10">
-            <h3 className="text-2xl font-semibold">
-              Barista – Bo's Coffee
-            </h3>
-
-            <p className="text-blue-400">
-              March 2016 – April 2017
-            </p>
-
-            <p className="mt-3 text-gray-300">
-              Delivered excellent customer service, prepared beverages, and
-              maintained quality standards in a fast-paced environment.
-            </p>
-          </div>
-
-          <div className="bg-white/5 p-8 rounded-3xl border border-white/10">
-            <h3 className="text-2xl font-semibold">
-              Waiter – House of Lechon
-            </h3>
-
-            <p className="text-blue-400">
-              May 2015 – November 2015
-            </p>
-
-            <p className="mt-3 text-gray-300">
-              Provided exceptional dining service and coordinated with team
-              members to ensure customer satisfaction.
-            </p>
-          </div>
-
+    <!-- About -->
+    <section id="about" class="py-24 bg-slate-900">
+        <div class="max-w-6xl mx-auto px-6">
+            <h2 class="text-5xl font-bold heading mb-12 section-title">About Me</h2>
+            <div class="max-w-3xl text-lg leading-relaxed text-slate-300">
+                <p class="mb-6">
+                    A dedicated and detail-oriented Mechanical Engineering graduate from Cebu Institute of Technology – University. 
+                    I combine technical knowledge with strong interpersonal skills developed through various customer-facing roles.
+                </p>
+                <p>
+                    Seeking opportunities where I can apply my engineering foundation, problem-solving abilities, and teamwork experience to contribute meaningfully to innovative projects.
+                </p>
+            </div>
         </div>
-      </section>
+    </section>
 
-      {/* EDUCATION */}
-      <section className="container mx-auto px-6 py-20">
-        <h2 className="text-4xl font-bold mb-10">
-          Education
-        </h2>
-
-        <div className="bg-white/5 rounded-3xl p-8 border border-white/10">
-
-          <h3 className="text-2xl font-semibold">
-            Bachelor of Science in Mechanical Engineering
-          </h3>
-
-          <p className="text-blue-400 mt-2">
-            Cebu Institute of Technology – University
-          </p>
-
-          <p className="text-gray-400">
-            June 2017 – July 2023
-          </p>
-
-        </div>
-      </section>
-
-      {/* SKILLS */}
-      <section className="container mx-auto px-6 py-20">
-        <h2 className="text-4xl font-bold mb-10">
-          Skills
-        </h2>
-
-        <div className="flex flex-wrap gap-4">
-
-          {[
-            "Microsoft Word",
-            "Microsoft Excel",
-            "Microsoft PowerPoint",
-            "Communication",
-            "Problem Solving",
-            "Teamwork",
-            "Time Management",
-            "Customer Service"
-          ].map((skill) => (
-            <span
-              key={skill}
-              className="bg-blue-600/20 border border-blue-500 px-5 py-3 rounded-full"
-            >
-              {skill}
-            </span>
-          ))}
-
-        </div>
-      </section>
-
-      {/* CONTACT */}
-      <section
-        id="contact"
-        className="container mx-auto px-6 py-20"
-      >
-        <h2 className="text-4xl font-bold mb-10">
-          Contact
-        </h2>
-
-        <div className="bg-white/5 p-8 rounded-3xl border border-white/10">
-
-          <p className="mb-4">
-            📧 ivankurt027@gmail.com
-          </p>
-
-          <p>
-            📱 +63 977 061 0448
-          </p>
-
-        </div>
-      </section>
-
-      <footer className="text-center py-8 text-gray-500 border-t border-white/10">
-        © 2026 Ivan Kurt Ponce. All rights reserved.
-      </footer>
-
-    </main>
-  );
-}
+    <!-- Experience -->
+    <section id="experience" class="py-24">
+        <div class="max-w-6xl mx-auto px-6">
+            <h2 class="text-5xl font-bold heading mb-16 section-title">Work Experience</h2>
+            
+            <div class="space-y-16">
+                <div class="grid md:grid-cols-12 gap-8">
+                    <div class="md:col-span-3">
+                        <div class="text-slate-400 font-medium">Mar 2026 – Apr 2026</div>
+                        <div class="text-white font-semibold mt-1">Intern</div>
+                    </div>
+                    <div class="md:col-span-9">
+                        <div class="text-xl font-semibold text-violet-400">The VA Bar Company
