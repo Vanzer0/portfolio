@@ -5,10 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ivan Kurt S. Ponce | Mechanical Engineer</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Space+Grotesk:wght@500;600&amp;display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@700&display=swap');
         
         :root {
             --primary: #0ea5e9;
@@ -19,16 +19,21 @@
         }
         
         .heading-font {
-            font-family: 'Space Grotesk', sans-serif;
+            font-family: 'Playfair Display', sans-serif;
         }
 
         .hero-bg {
             background: linear-gradient(135deg, #0f172a 0%, #1e2937 100%);
         }
 
+        .glass {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(12px);
+        }
+
         .nav-link {
             position: relative;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: all 0.3s ease;
         }
         
         .nav-link:after {
@@ -36,7 +41,7 @@
             position: absolute;
             width: 0;
             height: 2px;
-            bottom: -2px;
+            bottom: -4px;
             left: 0;
             background-color: #0ea5e9;
             transition: width 0.3s ease;
@@ -46,12 +51,11 @@
             width: 100%;
         }
 
-        .section-title {
+        .section-header {
             position: relative;
-            display: inline-block;
         }
         
-        .section-title:after {
+        .section-header:after {
             content: '';
             position: absolute;
             width: 60px;
@@ -59,7 +63,6 @@
             background: linear-gradient(to right, #0ea5e9, #22d3ee);
             bottom: -8px;
             left: 0;
-            border-radius: 9999px;
         }
 
         .timeline-item {
@@ -80,42 +83,13 @@
             width: 32px;
             height: 32px;
             background: #0ea5e9;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            z-index: 10;
-            box-shadow: 0 0 0 6px rgba(14, 165, 233, 0.2);
+            border: 4px solid #1e2937;
         }
 
         .skill-bar {
-            height: 8px;
-            background: #1e2937;
-            border-radius: 9999px;
-            overflow: hidden;
-        }
-        
-        .skill-progress {
-            height: 100%;
+            height: 6px;
             background: linear-gradient(to right, #0ea5e9, #67e8f9);
             transition: width 1.5s cubic-bezier(0.34, 1.56, 0.64, 1);
-        }
-
-        .card-hover {
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        
-        .card-hover:hover {
-            transform: translateY(-12px) scale(1.03);
-            box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.4);
-        }
-
-        .profile-img {
-            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        
-        .profile-img:hover {
-            transform: scale(1.08) rotate(3deg);
         }
     </style>
 </head>
@@ -125,21 +99,21 @@
         <div class="max-w-6xl mx-auto px-6 py-5 flex justify-between items-center">
             <div class="flex items-center gap-3">
                 <div class="w-9 h-9 bg-sky-500 rounded-2xl flex items-center justify-center text-white font-bold text-xl">IK</div>
-                <span class="font-semibold text-2xl tracking-tighter heading-font">IVAN KURT</span>
+                <span class="font-semibold text-xl tracking-tight">Ivan Kurt</span>
             </div>
             
-            <div class="hidden md:flex items-center gap-10 text-sm font-medium">
-                <a href="#about" class="nav-link">About</a>
-                <a href="#experience" class="nav-link">Experience</a>
-                <a href="#education" class="nav-link">Education</a>
-                <a href="#skills" class="nav-link">Skills</a>
-                <a href="#contact" class="nav-link">Contact</a>
+            <div class="hidden md:flex items-center gap-8 text-sm font-medium">
+                <a href="#about" class="nav-link text-slate-300 hover:text-white">About</a>
+                <a href="#experience" class="nav-link text-slate-300 hover:text-white">Experience</a>
+                <a href="#education" class="nav-link text-slate-300 hover:text-white">Education</a>
+                <a href="#skills" class="nav-link text-slate-300 hover:text-white">Skills</a>
+                <a href="#contact" class="nav-link text-slate-300 hover:text-white">Contact</a>
             </div>
-
-            <a href="mailto:ivankurt027@gmail.com" 
-               class="px-6 py-3 bg-sky-500 hover:bg-sky-600 transition-colors rounded-2xl text-sm font-semibold flex items-center gap-2">
-                <i class="fa-solid fa-paper-plane"></i>
-                <span>Get In Touch</span>
+            
+            <a href="#contact" 
+               class="px-6 py-2.5 bg-sky-500 hover:bg-sky-600 transition-colors rounded-2xl text-sm font-semibold flex items-center gap-2">
+                <i class="fas fa-paper-plane"></i>
+                <span>Get in Touch</span>
             </a>
         </div>
     </nav>
@@ -147,71 +121,77 @@
     <!-- HERO -->
     <section class="hero-bg min-h-screen flex items-center pt-20">
         <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
-            <div class="space-y-8" data-aos="fade-right">
-                <div class="inline-flex items-center gap-2 bg-slate-900 border border-slate-700 px-5 py-2 rounded-3xl text-sm">
-                    <div class="w-3 h-3 bg-emerald-500 rounded-full animate-pulse"></div>
+            <div class="space-y-8" data-aos="fade-up">
+                <div class="inline-flex items-center gap-2 px-4 py-2 bg-slate-800/50 rounded-3xl text-sm">
+                    <div class="w-2 h-2 bg-emerald-400 rounded-full animate-pulse"></div>
                     Cebu City, Philippines
                 </div>
                 
-                <h1 class="text-7xl md:text-8xl font-bold tracking-tighter heading-font leading-none">
-                    IVAN KURT<br><span class="text-sky-400">S. PONCE</span>
+                <h1 class="text-6xl md:text-7xl font-bold heading-font leading-none tracking-tighter">
+                    IVAN KURT<br>S. PONCE
                 </h1>
                 
-                <p class="text-3xl text-slate-400 font-light">
-                    Mechanical Engineer<br>
-                    <span class="text-xl text-slate-500">Problem Solver • Team Player</span>
+                <p class="text-2xl text-slate-400">
+                    Mechanical Engineer • Problem Solver • Team Player
+                </p>
+                
+                <p class="max-w-md text-lg text-slate-400">
+                    Recent Mechanical Engineering graduate with hands-on experience in hospitality and customer service. 
+                    Passionate about design, innovation, and delivering exceptional results.
                 </p>
                 
                 <div class="flex flex-wrap gap-4">
                     <a href="#contact" 
-                       class="px-8 py-4 bg-white text-slate-900 font-semibold rounded-3xl hover:bg-slate-200 transition-all flex items-center gap-3 group">
-                        View My Work
-                        <i class="fa-solid fa-arrow-right group-active:rotate-45 transition"></i>
+                       class="px-8 py-4 bg-white text-slate-900 rounded-3xl font-semibold flex items-center gap-3 hover:scale-105 transition-transform">
+                        <i class="fas fa-envelope"></i>
+                        Contact Me
                     </a>
                     
-                    <a href="https://www.linkedin.com/in/ivan-kurt-ponce" target="_blank"
-                       class="px-8 py-4 border border-slate-600 hover:border-slate-400 font-medium rounded-3xl transition-all flex items-center gap-3">
-                        <i class="fa-brands fa-linkedin"></i>
+                    <a href="https://www.linkedin.com/in/ivan-kurt-s-ponce-98b832307/" target="_blank"
+                       class="px-8 py-4 border border-slate-400 hover:border-sky-400 rounded-3xl font-medium flex items-center gap-3 transition-colors">
+                        <i class="fab fa-linkedin"></i>
                         LinkedIn
                     </a>
                 </div>
                 
                 <div class="flex gap-8 text-sm pt-6">
-                    <div>
-                        <span class="block text-4xl font-semibold text-sky-400">+63 977 061 0448</span>
-                        <span class="text-slate-500">Mobile</span>
-                    </div>
-                    <div>
-                        <a href="mailto:ivankurt027@gmail.com" class="block text-4xl font-semibold hover:text-sky-400 transition">ivankurt027@gmail.com</a>
-                        <span class="text-slate-500">Email</span>
-                    </div>
+                    <a href="mailto:ivankurt027@gmail.com" class="flex items-center gap-2 hover:text-sky-400 transition-colors">
+                        <i class="fas fa-envelope"></i>
+                        ivankurt027@gmail.com
+                    </a>
+                    <a href="https://wa.me/639770610448" target="_blank" class="flex items-center gap-2 hover:text-sky-400 transition-colors">
+                        <i class="fab fa-whatsapp"></i>
+                        +63 977 061 0448
+                    </a>
                 </div>
             </div>
             
             <!-- Profile Image -->
-            <div class="flex justify-center md:justify-end" data-aos="fade-left">
+            <div class="relative flex justify-center" data-aos="fade-left" data-aos-delay="200">
                 <div class="relative">
-                    <div class="absolute inset-0 bg-gradient-to-br from-sky-400 to-cyan-300 blur-3xl opacity-20 rounded-[4rem]"></div>
+                    <div class="absolute -inset-6 bg-gradient-to-br from-sky-500 to-cyan-400 rounded-[4rem] rotate-6 opacity-20"></div>
                     <img id="profile-pic" 
                          src="https://i.imgur.com/PLACEHOLDER.jpg" 
                          alt="Ivan Kurt S. Ponce"
-                         class="profile-img w-80 h-80 md:w-96 md:h-96 object-cover rounded-[3rem] shadow-2xl border-8 border-slate-900 relative z-10">
-                    <div class="absolute -bottom-4 -right-4 bg-slate-900 border border-slate-700 px-6 py-3 rounded-3xl flex items-center gap-3 shadow-xl">
+                         class="w-80 md:w-96 rounded-[3rem] shadow-2xl border-8 border-slate-900 object-cover relative z-10">
+                    <!-- Floating badges -->
+                    <div class="absolute -top-6 -right-6 bg-slate-900 glass border border-slate-700 rounded-3xl px-5 py-3 shadow-xl flex items-center gap-3">
                         <div class="text-emerald-400">
-                            <i class="fa-solid fa-circle-check text-3xl"></i>
+                            <i class="fas fa-check-circle text-2xl"></i>
                         </div>
                         <div>
-                            <div class="font-semibold">Available for opportunities</div>
-                            <div class="text-xs text-slate-400">June 2026 onward</div>
+                            <div class="text-xs text-slate-400">Available for</div>
+                            <div class="font-semibold">Opportunities</div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
         
-        <div class="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-slate-500">
-            <span class="text-xs tracking-widest">SCROLL TO EXPLORE</span>
-            <i class="fa-solid fa-chevron-down animate-bounce"></i>
+        <!-- Scroll indicator -->
+        <div class="absolute bottom-10 left-1/2 flex flex-col items-center gap-2 text-xs tracking-widest">
+            <span>SCROLL TO EXPLORE</span>
+            <div class="w-px h-12 bg-gradient-to-b from-transparent via-slate-400 to-transparent"></div>
         </div>
     </section>
 
@@ -219,128 +199,111 @@
     <section id="about" class="py-24 bg-slate-900">
         <div class="max-w-6xl mx-auto px-6">
             <div class="grid md:grid-cols-12 gap-16 items-center">
-                <div class="md:col-span-5" data-aos="fade-up">
-                    <div class="sticky top-24">
-                        <span class="px-4 py-2 bg-slate-800 text-sky-400 text-sm font-mono rounded-full">01 / ABOUT ME</span>
-                        <h2 class="text-6xl heading-font font-semibold mt-6 leading-none">Passionate about engineering solutions that matter.</h2>
-                        <p class="mt-8 text-lg text-slate-400 leading-relaxed">
-                            Recent Mechanical Engineering graduate from Cebu Institute of Technology - University with hands-on experience in hospitality and internship roles. 
-                            Strong foundation in problem-solving, technical documentation, and team collaboration.
-                        </p>
-                    </div>
-                </div>
-                
-                <div class="md:col-span-7 space-y-8" data-aos="fade-up" data-aos-delay="100">
-                    <div class="bg-slate-800/50 border border-slate-700 p-8 rounded-3xl">
-                        <h3 class="text-xl font-semibold mb-6 flex items-center gap-3">
-                            <i class="fa-solid fa-user-graduate"></i>
-                            Quick Facts
-                        </h3>
-                        <div class="grid grid-cols-2 gap-6">
-                            <div>
-                                <div class="text-slate-400 text-sm">Born</div>
-                                <div class="font-medium">January 24, 1995 • Cebu City</div>
-                            </div>
-                            <div>
-                                <div class="text-slate-400 text-sm">Nationality</div>
-                                <div class="font-medium">Filipino</div>
-                            </div>
-                            <div>
-                                <div class="text-slate-400 text-sm">Degree</div>
-                                <div class="font-medium">BS Mechanical Engineering</div>
-                            </div>
-                            <div>
-                                <div class="text-slate-400 text-sm">Languages</div>
-                                <div class="font-medium">English • Filipino</div>
-                            </div>
+                <div class="md:col-span-5" data-aos="fade-right">
+                    <h2 class="text-5xl heading-font font-bold mb-8 section-header">Personal Details</h2>
+                    <div class="space-y-8 text-lg">
+                        <div class="flex gap-6">
+                            <div class="w-28 text-slate-400">Birth Date</div>
+                            <div>January 24, 1995</div>
+                        </div>
+                        <div class="flex gap-6">
+                            <div class="w-28 text-slate-400">Birth Place</div>
+                            <div>Cebu City, Philippines</div>
+                        </div>
+                        <div class="flex gap-6">
+                            <div class="w-28 text-slate-400">Nationality</div>
+                            <div>Filipino</div>
                         </div>
                     </div>
                     
-                    <p class="text-slate-400 leading-relaxed text-lg">
-                        I combine technical knowledge with exceptional service experience from my time as a Barista and Waiter. 
-                        I'm eager to apply my engineering education and practical skills to innovative mechanical design, manufacturing, or project roles.
-                    </p>
+                    <div class="mt-16">
+                        <h3 class="text-xl font-semibold mb-6">Connect With Me</h3>
+                        <div class="flex gap-4">
+                            <a href="https://www.linkedin.com/in/ivan-kurt-s-ponce-98b832307/" target="_blank" 
+                               class="w-12 h-12 flex items-center justify-center bg-slate-800 hover:bg-sky-500 hover:text-white transition-all rounded-2xl text-2xl">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                            <a href="https://www.facebook.com/profile.php?id=61575367341176" target="_blank"
+                               class="w-12 h-12 flex items-center justify-center bg-slate-800 hover:bg-sky-500 hover:text-white transition-all rounded-2xl text-2xl">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a href="https://www.instagram.com/vanzero0001/" target="_blank"
+                               class="w-12 h-12 flex items-center justify-center bg-slate-800 hover:bg-sky-500 hover:text-white transition-all rounded-2xl text-2xl">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="https://www.tiktok.com/@vanzero001" target="_blank"
+                               class="w-12 h-12 flex items-center justify-center bg-slate-800 hover:bg-sky-500 hover:text-white transition-all rounded-2xl text-2xl">
+                                <i class="fab fa-tiktok"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="md:col-span-7" data-aos="fade-up">
+                    <div class="prose prose-invert max-w-none text-slate-300 text-lg leading-relaxed">
+                        <p class="mb-6">
+                            As a Mechanical Engineering graduate from Cebu Institute of Technology - University, 
+                            I bring a strong foundation in engineering principles combined with practical experience 
+                            in fast-paced service environments.
+                        </p>
+                        <p>
+                            My diverse background in hospitality has sharpened my ability to solve problems under pressure, 
+                            collaborate effectively with teams, and deliver outstanding customer experiences.
+                        </p>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- EXPERIENCE -->
-    <section id="experience" class="py-24">
+    <section id="experience" class="py-24 bg-slate-950">
         <div class="max-w-6xl mx-auto px-6">
-            <div class="flex items-end justify-between mb-16">
-                <div>
-                    <span class="text-sky-400 font-mono text-sm">02 / JOURNEY</span>
-                    <h2 class="text-6xl heading-font font-semibold mt-2">Work Experience</h2>
-                </div>
-            </div>
+            <h2 class="text-5xl heading-font font-bold mb-16 text-center section-header mx-auto w-fit">Work Experience</h2>
             
-            <div class="space-y-16">
+            <div class="max-w-3xl mx-auto space-y-16">
                 <!-- Experience 1 -->
-                <div class="grid md:grid-cols-12 gap-8 timeline-item" data-aos="fade-up">
-                    <div class="md:col-span-3">
-                        <div class="flex items-center gap-4">
-                            <div class="timeline-dot">
-                                <i class="fa-solid fa-briefcase text-white"></i>
-                            </div>
+                <div class="timeline-item pl-12 relative" data-aos="fade-up">
+                    <div class="timeline-dot absolute left-0 rounded-full flex items-center justify-center text-white font-bold text-sm">2026</div>
+                    <div class="glass border border-slate-700 rounded-3xl p-8">
+                        <div class="flex justify-between items-start mb-4">
                             <div>
-                                <div class="font-mono text-xs text-slate-500">MAR - APR 2026</div>
-                                <div class="font-semibold">The VA Bar Company</div>
+                                <h3 class="font-semibold text-xl">Intern</h3>
+                                <p class="text-sky-400">The VA Bar Company</p>
                             </div>
+                            <span class="text-sm text-slate-400 whitespace-nowrap">Mar 2026 — Apr 2026</span>
                         </div>
-                    </div>
-                    <div class="md:col-span-9">
-                        <div class="card-hover bg-slate-900 border border-slate-800 p-8 rounded-3xl">
-                            <div class="flex justify-between items-start">
-                                <div>
-                                    <span class="inline-block px-4 py-1 bg-amber-400 text-slate-900 text-xs font-bold rounded-2xl mb-3">INTERN</span>
-                                    <h3 class="text-2xl font-semibold">Intern</h3>
-                                </div>
-                            </div>
-                            <p class="mt-6 text-slate-400">Gained practical industry exposure in a professional engineering environment.</p>
-                        </div>
+                        <p class="text-slate-400">Virtual Assistant role providing operational support and administrative assistance.</p>
                     </div>
                 </div>
-
+                
                 <!-- Experience 2 -->
-                <div class="grid md:grid-cols-12 gap-8 timeline-item" data-aos="fade-up" data-aos-delay="100">
-                    <div class="md:col-span-3">
-                        <div class="flex items-center gap-4">
-                            <div class="timeline-dot">
-                                <i class="fa-solid fa-coffee text-white"></i>
-                            </div>
+                <div class="timeline-item pl-12 relative" data-aos="fade-up" data-aos-delay="100">
+                    <div class="timeline-dot absolute left-0 rounded-full flex items-center justify-center text-white font-bold text-sm">2017</div>
+                    <div class="glass border border-slate-700 rounded-3xl p-8">
+                        <div class="flex justify-between items-start mb-4">
                             <div>
-                                <div class="font-mono text-xs text-slate-500">MAR 2016 - APR 2017</div>
-                                <div class="font-semibold">Bo's Coffee (Beanteaser Club Inc.)</div>
+                                <h3 class="font-semibold text-xl">Barista</h3>
+                                <p class="text-sky-400">Bo's Coffee (Beanteaser Club Inc.)</p>
                             </div>
+                            <span class="text-sm text-slate-400 whitespace-nowrap">Mar 2016 — Apr 2017</span>
                         </div>
-                    </div>
-                    <div class="md:col-span-9">
-                        <div class="card-hover bg-slate-900 border border-slate-800 p-8 rounded-3xl">
-                            <h3 class="text-2xl font-semibold">Barista</h3>
-                            <p class="mt-6 text-slate-400">Delivered exceptional customer service while mastering time management and teamwork in a fast-paced environment.</p>
-                        </div>
+                        <p class="text-slate-400">Delivered exceptional customer service while preparing high-quality beverages in a fast-paced café environment.</p>
                     </div>
                 </div>
-
+                
                 <!-- Experience 3 -->
-                <div class="grid md:grid-cols-12 gap-8 timeline-item" data-aos="fade-up" data-aos-delay="200">
-                    <div class="md:col-span-3">
-                        <div class="flex items-center gap-4">
-                            <div class="timeline-dot">
-                                <i class="fa-solid fa-utensils text-white"></i>
-                            </div>
+                <div class="timeline-item pl-12 relative" data-aos="fade-up" data-aos-delay="200">
+                    <div class="timeline-dot absolute left-0 rounded-full flex items-center justify-center text-white font-bold text-sm">2015</div>
+                    <div class="glass border border-slate-700 rounded-3xl p-8">
+                        <div class="flex justify-between items-start mb-4">
                             <div>
-                                <div class="font-mono text-xs text-slate-500">MAY - NOV 2015</div>
-                                <div class="font-semibold">House of Lechon (Pages Holdings Inc.)</div>
+                                <h3 class="font-semibold text-xl">Waiter</h3>
+                                <p class="text-sky-400">House of Lechon (Pages Holdings Inc.)</p>
                             </div>
+                            <span class="text-sm text-slate-400 whitespace-nowrap">May 2015 — Nov 2015</span>
                         </div>
-                    </div>
-                    <div class="md:col-span-9">
-                        <div class="card-hover bg-slate-900 border border-slate-800 p-8 rounded-3xl">
-                            <h3 class="text-2xl font-semibold">Waiter</h3>
-                            <p class="mt-6 text-slate-400">Developed strong communication and customer service skills while working in a high-volume restaurant setting.</p>
-                        </div>
+                        <p class="text-slate-400">Provided excellent table service and maintained high standards of customer satisfaction.</p>
                     </div>
                 </div>
             </div>
@@ -350,43 +313,30 @@
     <!-- EDUCATION -->
     <section id="education" class="py-24 bg-slate-900">
         <div class="max-w-6xl mx-auto px-6">
-            <div class="flex items-end justify-between mb-16">
-                <div>
-                    <span class="text-sky-400 font-mono text-sm">03 / ACADEMICS</span>
-                    <h2 class="text-6xl heading-font font-semibold mt-2">Education</h2>
-                </div>
-            </div>
-            
-            <div class="max-w-3xl mx-auto bg-slate-800/70 border border-slate-700 rounded-3xl p-12" data-aos="zoom-in">
-                <div class="flex justify-between items-start">
-                    <div>
-                        <div class="text-sky-400 font-semibold">BACHELOR OF SCIENCE</div>
-                        <h3 class="text-3xl font-semibold mt-2">Mechanical Engineering</h3>
-                        <div class="mt-2 text-slate-400">Cebu Institute of Technology – University</div>
-                    </div>
-                    <div class="text-right">
-                        <div class="font-mono text-sm">JUNE 2017 — JULY 2023</div>
+            <div class="grid md:grid-cols-2 gap-20">
+                <div data-aos="fade-right">
+                    <h2 class="text-5xl heading-font font-bold mb-12 section-header">Education</h2>
+                    <div class="glass border border-slate-700 rounded-3xl p-10">
+                        <div class="flex items-center gap-4 mb-6">
+                            <div class="w-14 h-14 bg-gradient-to-br from-amber-400 to-orange-500 rounded-2xl flex-shrink-0"></div>
+                            <div>
+                                <h3 class="text-2xl font-semibold">Bachelor of Science in Mechanical Engineering</h3>
+                                <p class="text-sky-400">Cebu Institute of Technology - University</p>
+                            </div>
+                        </div>
+                        <div class="text-slate-400">June 2017 — July 2023</div>
                     </div>
                 </div>
                 
-                <div class="mt-12 pt-12 border-t border-slate-700">
-                    <div class="text-slate-400">Key Focus Areas:</div>
-                    <div class="grid grid-cols-2 gap-x-12 gap-y-4 mt-6">
-                        <div class="flex items-center gap-3">
-                            <i class="fa-solid fa-check text-emerald-400"></i>
-                            <span>Thermodynamics &amp; Fluid Mechanics</span>
-                        </div>
-                        <div class="flex items-center gap-3">
-                            <i class="fa-solid fa-check text-emerald-400"></i>
-                            <span>Machine Design</span>
-                        </div>
-                        <div class="flex items-center gap-3">
-                            <i class="fa-solid fa-check text-emerald-400"></i>
-                            <span>Computer-Aided Design (CAD)</span>
-                        </div>
-                        <div class="flex items-center gap-3">
-                            <i class="fa-solid fa-check text-emerald-400"></i>
-                            <span>Project Management</span>
+                <div data-aos="fade-left">
+                    <h2 class="text-4xl font-semibold mb-8">Character Reference</h2>
+                    <div class="glass border border-slate-700 rounded-3xl p-8">
+                        <p class="font-medium">Engr. Roberto Base Jr.</p>
+                        <p class="text-slate-400">ME Department Chair</p>
+                        <p class="text-slate-400">Cebu Institute of Technology - University</p>
+                        <div class="mt-6 space-y-2 text-sm">
+                            <a href="tel:+639229855250" class="block hover:text-sky-400">+63 922 985 5250</a>
+                            <a href="mailto:roberto.basejr@cit.edu" class="block hover:text-sky-400">roberto.basejr@cit.edu</a>
                         </div>
                     </div>
                 </div>
@@ -395,77 +345,63 @@
     </section>
 
     <!-- SKILLS -->
-    <section id="skills" class="py-24">
+    <section id="skills" class="py-24 bg-slate-950">
         <div class="max-w-6xl mx-auto px-6">
-            <div class="text-center mb-16">
-                <span class="text-sky-400 font-mono text-sm">04 / CAPABILITIES</span>
-                <h2 class="text-6xl heading-font font-semibold mt-4">Skills &amp; Proficiencies</h2>
-            </div>
+            <h2 class="text-5xl heading-font font-bold mb-16 text-center section-header mx-auto w-fit">Skills</h2>
             
-            <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+            <div class="grid md:grid-cols-2 gap-x-20 gap-y-12 max-w-4xl mx-auto">
                 <div data-aos="fade-up">
-                    <div class="bg-slate-900 p-8 rounded-3xl border border-slate-800 h-full">
-                        <h3 class="font-semibold mb-6 flex items-center gap-3 text-lg">
-                            <i class="fa-solid fa-laptop-code"></i>
-                            Technical Tools
-                        </h3>
-                        <div class="space-y-8">
-                            <div>
-                                <div class="flex justify-between text-sm mb-2">
-                                    <span>Microsoft Word</span>
-                                    <span class="text-emerald-400">Advanced</span>
-                                </div>
-                                <div class="skill-bar"><div class="skill-progress w-[95%]"></div></div>
-                            </div>
-                            <div>
-                                <div class="flex justify-between text-sm mb-2">
-                                    <span>Microsoft Excel</span>
-                                    <span class="text-emerald-400">Advanced</span>
-                                </div>
-                                <div class="skill-bar"><div class="skill-progress w-[90%]"></div></div>
-                            </div>
-                            <div>
-                                <div class="flex justify-between text-sm mb-2">
-                                    <span>Microsoft PowerPoint</span>
-                                    <span class="text-emerald-400">Advanced</span>
-                                </div>
-                                <div class="skill-bar"><div class="skill-progress w-[92%]"></div></div>
-                            </div>
-                        </div>
+                    <div class="flex justify-between mb-2">
+                        <span class="font-medium">Microsoft Word</span>
+                        <span class="text-emerald-400">Advanced</span>
+                    </div>
+                    <div class="h-2.5 bg-slate-800 rounded-full overflow-hidden">
+                        <div class="skill-bar w-[90%]"></div>
                     </div>
                 </div>
-                
-                <div data-aos="fade-up" data-aos-delay="150">
-                    <div class="bg-slate-900 p-8 rounded-3xl border border-slate-800 h-full">
-                        <h3 class="font-semibold mb-6 flex items-center gap-3 text-lg">
-                            <i class="fa-solid fa-brain"></i>
-                            Soft Skills
-                        </h3>
-                        <div class="grid grid-cols-2 gap-4">
-                            <div class="bg-slate-800 px-6 py-5 rounded-2xl text-center">Problem-Solving</div>
-                            <div class="bg-slate-800 px-6 py-5 rounded-2xl text-center">Teamwork</div>
-                            <div class="bg-slate-800 px-6 py-5 rounded-2xl text-center">Communication</div>
-                            <div class="bg-slate-800 px-6 py-5 rounded-2xl text-center">Time Management</div>
-                        </div>
+                <div data-aos="fade-up" data-aos-delay="100">
+                    <div class="flex justify-between mb-2">
+                        <span class="font-medium">Microsoft Excel</span>
+                        <span class="text-emerald-400">Advanced</span>
+                    </div>
+                    <div class="h-2.5 bg-slate-800 rounded-full overflow-hidden">
+                        <div class="skill-bar w-[85%]"></div>
                     </div>
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- REFERENCE -->
-    <section class="py-20 bg-slate-900 border-t border-b border-slate-800">
-        <div class="max-w-4xl mx-auto px-6 text-center">
-            <h3 class="text-2xl font-semibold mb-10">Character Reference</h3>
-            <div class="bg-slate-800 p-10 rounded-3xl max-w-md mx-auto">
-                <p class="italic text-slate-300">"Ivan is a diligent, honest, and highly capable individual with strong potential in the engineering field."</p>
-                <div class="mt-10">
-                    <div class="font-semibold">Engr. Roberto Base Jr.</div>
-                    <div class="text-sm text-slate-400">ME Department Chair</div>
-                    <div class="text-sm text-slate-400">Cebu Institute of Technology – University</div>
-                    <div class="mt-4 text-xs">
-                        <a href="tel:+639228555250" class="hover:text-sky-400">+63 922 855 5250</a><br>
-                        <a href="mailto:roberto.basejr@cit.edu" class="hover:text-sky-400">roberto.basejr@cit.edu</a>
+                <div data-aos="fade-up" data-aos-delay="200">
+                    <div class="flex justify-between mb-2">
+                        <span class="font-medium">Microsoft PowerPoint</span>
+                        <span class="text-emerald-400">Advanced</span>
+                    </div>
+                    <div class="h-2.5 bg-slate-800 rounded-full overflow-hidden">
+                        <div class="skill-bar w-[88%]"></div>
+                    </div>
+                </div>
+                <div data-aos="fade-up" data-aos-delay="300">
+                    <div class="flex justify-between mb-2">
+                        <span class="font-medium">Problem Solving</span>
+                        <span class="text-emerald-400">Expert</span>
+                    </div>
+                    <div class="h-2.5 bg-slate-800 rounded-full overflow-hidden">
+                        <div class="skill-bar w-[95%]"></div>
+                    </div>
+                </div>
+                <div data-aos="fade-up" data-aos-delay="400">
+                    <div class="flex justify-between mb-2">
+                        <span class="font-medium">Teamwork &amp; Collaboration</span>
+                        <span class="text-emerald-400">Expert</span>
+                    </div>
+                    <div class="h-2.5 bg-slate-800 rounded-full overflow-hidden">
+                        <div class="skill-bar w-[92%]"></div>
+                    </div>
+                </div>
+                <div data-aos="fade-up" data-aos-delay="500">
+                    <div class="flex justify-between mb-2">
+                        <span class="font-medium">Communication</span>
+                        <span class="text-emerald-400">Advanced</span>
+                    </div>
+                    <div class="h-2.5 bg-slate-800 rounded-full overflow-hidden">
+                        <div class="skill-bar w-[90%]"></div>
                     </div>
                 </div>
             </div>
@@ -473,72 +409,90 @@
     </section>
 
     <!-- CONTACT -->
-    <section id="contact" class="py-24">
-        <div class="max-w-6xl mx-auto px-6 text-center">
-            <h2 class="text-6xl heading-font font-semibold">Let's Connect</h2>
-            <p class="mt-6 text-xl text-slate-400 max-w-md mx-auto">Open to full-time Mechanical Engineering roles, internships, or collaborations.</p>
+    <section id="contact" class="py-24 bg-slate-900">
+        <div class="max-w-4xl mx-auto px-6 text-center">
+            <h2 class="text-5xl heading-font font-bold mb-6">Let's Connect</h2>
+            <p class="text-xl text-slate-400 mb-12">Open to new opportunities and collaborations</p>
             
-            <div class="flex flex-col md:flex-row gap-6 justify-center mt-16">
+            <div class="flex flex-col md:flex-row gap-6 justify-center">
                 <a href="mailto:ivankurt027@gmail.com" 
-                   class="group flex-1 max-w-xs mx-auto bg-gradient-to-r from-sky-500 to-cyan-400 text-slate-950 font-semibold py-8 px-10 rounded-3xl hover:scale-105 transition-all flex flex-col items-center">
-                    <i class="fa-solid fa-envelope text-4xl mb-4 group-hover:scale-110 transition"></i>
-                    <span class="text-lg">Send Email</span>
+                   class="group flex-1 max-w-xs mx-auto md:mx-0 bg-slate-800 hover:bg-slate-700 transition-all border border-slate-700 hover:border-sky-500 rounded-3xl p-8 text-left">
+                    <i class="fas fa-envelope text-4xl text-sky-400 mb-6 block"></i>
+                    <div class="font-medium text-xl">Email</div>
+                    <div class="text-slate-400 group-hover:text-white transition-colors">ivankurt027@gmail.com</div>
                 </a>
                 
-                <a href="tel:+639770610448" 
-                   class="group flex-1 max-w-xs mx-auto bg-slate-900 border border-slate-700 font-semibold py-8 px-10 rounded-3xl hover:scale-105 transition-all flex flex-col items-center">
-                    <i class="fa-solid fa-phone text-4xl mb-4"></i>
-                    <span class="text-lg">Call Me</span>
-                    <span class="text-sm text-slate-400 mt-1">+63 977 061 0448</span>
+                <a href="https://wa.me/639770610448" target="_blank"
+                   class="group flex-1 max-w-xs mx-auto md:mx-0 bg-slate-800 hover:bg-slate-700 transition-all border border-slate-700 hover:border-emerald-500 rounded-3xl p-8 text-left">
+                    <i class="fab fa-whatsapp text-4xl text-emerald-400 mb-6 block"></i>
+                    <div class="font-medium text-xl">WhatsApp</div>
+                    <div class="text-slate-400 group-hover:text-white transition-colors">+63 977 061 0448</div>
                 </a>
+            </div>
+            
+            <div class="mt-16 pt-12 border-t border-slate-800 text-sm text-slate-500">
+                © 2026 Ivan Kurt S. Ponce • Built with passion
             </div>
         </div>
     </section>
 
-    <!-- FOOTER -->
-    <footer class="bg-black py-12 border-t border-slate-800">
-        <div class="max-w-6xl mx-auto px-6 text-center text-slate-500 text-sm">
-            <p>© 2026 Ivan Kurt S. Ponce. Built with passion.</p>
-            <p class="mt-2">Made for GitHub + Vercel deployment</p>
-        </div>
-    </footer>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script>
-        // Tailwind script already included via CDN
+        // Tailwind script
+        function initializeTailwind() {
+            // Already using Tailwind via CDN
+        }
+        
+        // Initialize AOS
         AOS.init({
-            duration: 1000,
-            once: true
+            once: true,
+            duration: 800,
+            easing: 'ease-out-cubic'
         });
         
-        // Animate skill bars when in view
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const bars = entry.target.querySelectorAll('.skill-progress');
-                    bars.forEach(bar => {
-                        const width = bar.style.width;
-                        bar.style.width = '0%';
-                        setTimeout(() => {
-                            bar.style.width = width;
-                        }, 300);
-                    });
+        // Profile image (replace with your actual image URL)
+        document.getElementById('profile-pic').src = "https://i.imgur.com/your-image-link.jpg"; 
+        // Note: Upload your profile picture to Imgur or GitHub and replace the URL above
+        
+        // Smooth scroll for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                if (this.getAttribute('href') !== '#') {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
                 }
             });
-        }, { threshold: 0.6 });
+        });
         
-        // Observe the skills section
-        setTimeout(() => {
-            const skillsSection = document.getElementById('skills');
-            if (skillsSection) observer.observe(skillsSection);
-        }, 1000);
+        // Add active nav state on scroll
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('section[id]');
+            const navLinks = document.querySelectorAll('.nav-link');
+            
+            let current = '';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (scrollY >= sectionTop - 200) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.classList.remove('text-sky-400');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('text-sky-400');
+                }
+            });
+        });
         
-        // Profile image fallback
-        document.getElementById('profile-pic').onerror = function() {
-            this.src = 'https://picsum.photos/id/64/600/600';
-        };
-        
-        console.log('%cIvan Kurt S. Ponce Portfolio Loaded Successfully ✨', 'color:#0ea5e9; font-family:monospace');
+        console.log('%cPortfolio loaded successfully ✨', 'color: #0ea5e9; font-size: 14px; font-family: monospace');
     </script>
 </body>
 </html>
