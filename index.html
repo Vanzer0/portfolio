@@ -1,172 +1,216 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ivan Kurt S. Ponce | Portfolio</title>
-    <!-- Tailwind CSS CDN -->
-    <script src="https://tailwindcss.com"></script>
-    <!-- FontAwesome for Icons -->
-    <link rel="stylesheet" href="https://cloudflare.com">
-    <!-- AOS Animation Library -->
-    <link href="https://unpkg.com" rel="stylesheet">
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        brand: {
-                            gold: '#D4AF37',
-                            dark: '#0F172A',
-                            card: '#1E293B',
-                            accent: '#38BDF8'
-                        }
-                    }
-                }
-            }
-        }
-    </script>
-    <style>
-        html {
-            scroll-behavior: smooth;
-        }
-        .gradient-text {
-            background: linear-gradient(135deg, #38BDF8 0%, #D4AF37 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-    </style>
-</head>
-<body class="bg-brand-dark text-slate-100 font-sans antialiased overflow-x-hidden">
+import Image from "next/image";
 
-    <!-- Header / Navigation -->
-    <header class="fixed top-0 left-0 w-full z-50 bg-brand-dark/80 backdrop-blur-md border-b border-slate-800">
-        <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="#" class="text-xl font-bold tracking-wider text-white">IK<span class="text-brand-gold">.</span>PONCE</a>
-            <nav class="hidden md:flex space-x-8 text-sm font-medium tracking-wide">
-                <a href="#about" class="hover:text-brand-gold transition-colors duration-300">About</a>
-                <a href="#experience" class="hover:text-brand-gold transition-colors duration-300">Experience</a>
-                <a href="#education" class="hover:text-brand-gold transition-colors duration-300">Education</a>
-                <a href="#skills" class="hover:text-brand-gold transition-colors duration-300">Skills</a>
-                <a href="#contact" class="hover:text-brand-gold transition-colors duration-300">Contact</a>
-            </nav>
-        </div>
-    </header>
+export default function Home() {
+  return (
+    <main className="bg-[#0B1120] text-white min-h-screen">
 
-    <!-- Hero Section -->
-    <section class="min-h-screen flex items-center justify-center pt-20 px-6 relative" id="about">
-        <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center w-full">
-            
-            <!-- Left Side Details -->
-            <div data-aos="fade-right" data-aos-duration="1000">
-                <span class="text-brand-gold font-mono tracking-widest text-sm uppercase">Mechanical Engineer & Professional</span>
-                <h1 class="text-4xl md:text-6xl font-extrabold text-white mt-2 mb-4 leading-tight">
-                    Hi, I'm <span class="gradient-text">Ivan Kurt S. Ponce</span>
-                </h1>
-                <p class="text-slate-400 text-lg mb-8 max-w-lg">
-                    Based in Cebu City, Philippines. Passionate about engineering solutions, problem-solving, and continuous growth.
-                </p>
-                <div class="flex flex-wrap gap-4">
-                    <a href="#contact" class="bg-gradient-to-r from-brand-accent to-brand-gold text-brand-dark font-bold px-6 py-3 rounded-lg shadow-lg hover:opacity-90 transition-opacity duration-300">
-                        Get In Touch
-                    </a>
-                    <a href="#experience" class="border border-slate-700 hover:border-brand-gold text-slate-300 hover:text-white px-6 py-3 rounded-lg transition-all duration-300">
-                        View My Work
-                    </a>
-                </div>
+      {/* HERO */}
+      <section className="container mx-auto px-6 py-20">
+        <div className="grid md:grid-cols-2 gap-10 items-center">
+
+          <div>
+            <p className="text-blue-400 font-medium mb-2">
+              Mechanical Engineering Graduate
+            </p>
+
+            <h1 className="text-5xl md:text-7xl font-bold leading-tight">
+              Ivan Kurt
+              <span className="text-blue-500"> Ponce</span>
+            </h1>
+
+            <p className="text-gray-400 mt-6 text-lg">
+              Detail-oriented Mechanical Engineering graduate with experience
+              in customer service, hospitality, and virtual assistance support.
+              Passionate about solving problems, learning new technologies, and
+              delivering excellent service.
+            </p>
+
+            <div className="mt-8 flex gap-4">
+              <a
+                href="#contact"
+                className="bg-blue-600 hover:bg-blue-700 px-6 py-3 rounded-xl transition"
+              >
+                Contact Me
+              </a>
+
+              <a
+                href="/resume.pdf"
+                className="border border-gray-600 px-6 py-3 rounded-xl hover:bg-white hover:text-black transition"
+              >
+                Download Resume
+              </a>
             </div>
+          </div>
 
-            <!-- Right Side Image Placeholder -->
-            <div class="flex justify-center" data-aos="fade-left" data-aos-duration="1000">
-                <div class="relative group">
-                    <div class="absolute -inset-1 bg-gradient-to-r from-brand-accent to-brand-gold rounded-2xl blur opacity-30 group-hover:opacity-50 transition duration-1000 group-hover:duration-200"></div>
-                    <!-- Note: Replace 'profile.jpg' with your real picture file name -->
-                    <img src="profile.jpg" alt="Ivan Kurt S. Ponce" class="relative rounded-2xl w-72 h-96 object-cover shadow-2xl border border-slate-800 transition-transform duration-500 group-hover:scale-[1.02]">
-                </div>
+          <div className="flex justify-center">
+            <div className="relative">
+
+              <div className="absolute inset-0 bg-blue-500 blur-3xl opacity-30 rounded-full"></div>
+
+              <Image
+                src="/ivan.jpg"
+                alt="Ivan Ponce"
+                width={400}
+                height={400}
+                className="rounded-full border-4 border-blue-500 object-cover relative z-10"
+              />
             </div>
+          </div>
 
         </div>
-    </section>
+      </section>
 
-    <!-- Experience Section -->
-    <section class="py-24 bg-slate-900/50 border-y border-slate-800 px-6" id="experience">
-        <div class="max-w-4xl mx-auto">
-            <h2 class="text-3xl font-bold text-center text-white mb-16" data-aos="fade-up">
-                Work <span class="text-brand-gold">Experience</span>
-            </h2>
+      {/* ABOUT */}
+      <section className="container mx-auto px-6 py-20">
+        <h2 className="text-4xl font-bold mb-10">
+          About Me
+        </h2>
 
-            <div class="space-y-12 relative before:absolute before:inset-0 before:left-4 md:before:left-1/2 before:w-0.5 before:bg-slate-800">
-                
-                <!-- Experience Item 1 -->
-                <div class="relative flex flex-col md:flex-row md:justify-between items-start md:items-center" data-aos="fade-up">
-                    <div class="absolute left-4 md:left-1/2 transform -translate-x-1/2 w-4 h-4 rounded-full bg-brand-accent border-4 border-brand-dark z-10"></div>
-                    <div class="w-full md:w-[45%] pl-12 md:pl-0 md:text-right">
-                        <span class="text-brand-accent font-mono text-sm">March 2026 – April 2026</span>
-                        <h3 class="text-xl font-bold text-white mt-1">Intern</h3>
-                        <p class="text-slate-400 font-medium">The VA Bar Company</p>
-                    </div>
-                    <div class="hidden md:block w-[45%]"></div>
-                </div>
-
-                <!-- Experience Item 2 -->
-                <div class="relative flex flex-col md:flex-row md:justify-between items-start md:items-center" data-aos="fade-up">
-                    <div class="absolute left-4 md:left-1/2 transform -translate-x-1/2 w-4 h-4 rounded-full bg-brand-gold border-4 border-brand-dark z-10"></div>
-                    <div class="hidden md:block w-[45%]"></div>
-                    <div class="w-full md:w-[45%] pl-12">
-                        <span class="text-brand-gold font-mono text-sm">March 2016 – April 2017</span>
-                        <h3 class="text-xl font-bold text-white mt-1">Barista</h3>
-                        <p class="text-slate-400 font-medium">Bo's Coffee (Beanteaser Club Inc.)</p>
-                    </div>
-                </div>
-
-                <!-- Experience Item 3 -->
-                <div class="relative flex flex-col md:flex-row md:justify-between items-start md:items-center" data-aos="fade-up">
-                    <div class="absolute left-4 md:left-1/2 transform -translate-x-1/2 w-4 h-4 rounded-full bg-brand-accent border-4 border-brand-dark z-10"></div>
-                    <div class="w-full md:w-[45%] pl-12 md:pl-0 md:text-right">
-                        <span class="text-brand-accent font-mono text-sm">May 2015 – November 2015</span>
-                        <h3 class="text-xl font-bold text-white mt-1">Waiter</h3>
-                        <p class="text-slate-400 font-medium">House of Lechon (Pages Holdings Inc.)</p>
-                    </div>
-                    <div class="hidden md:block w-[45%]"></div>
-                </div>
-
-            </div>
+        <div className="bg-white/5 backdrop-blur-lg rounded-3xl p-8 border border-white/10">
+          <p className="text-gray-300 text-lg leading-relaxed">
+            I graduated with a Bachelor of Science in Mechanical Engineering
+            from Cebu Institute of Technology – University. My professional
+            experience includes customer-facing roles where I developed strong
+            communication, teamwork, time management, and problem-solving
+            abilities.
+          </p>
         </div>
-    </section>
+      </section>
 
-    <!-- Education Section -->
-    <section class="py-24 px-6" id="education">
-        <div class="max-w-4xl mx-auto">
-            <h2 class="text-3xl font-bold text-center text-white mb-16" data-aos="fade-up">
-                Education
-            </h2>
-            
-            <div class="bg-brand-card p-8 rounded-2xl border border-slate-800 shadow-xl flex flex-col md:flex-row justify-between items-start md:items-center gap-6" data-aos="zoom-in">
-                <div>
-                    <span class="text-brand-gold font-mono text-sm">June 2017 – July 2023</span>
-                    <h3 class="text-2xl font-bold text-white mt-1">Bachelor of Science in Mechanical Engineering</h3>
-                    <p class="text-slate-400 mt-2 text-lg">Cebu Institute of Technology – University</p>
-                </div>
-                <div class="bg-slate-900 px-4 py-2 rounded-xl border border-slate-800 text-brand-accent font-mono text-sm font-bold shadow-inner">
-                    Graduated
-                </div>
-            </div>
+      {/* EXPERIENCE */}
+      <section className="container mx-auto px-6 py-20">
+        <h2 className="text-4xl font-bold mb-10">
+          Experience
+        </h2>
+
+        <div className="space-y-6">
+
+          <div className="bg-white/5 p-8 rounded-3xl border border-white/10">
+            <h3 className="text-2xl font-semibold">
+              Intern – The VA Bar Company
+            </h3>
+
+            <p className="text-blue-400">
+              March 2026 – April 2026
+            </p>
+
+            <p className="mt-3 text-gray-300">
+              Assisted with administrative and virtual support tasks while
+              learning industry-standard business workflows and digital tools.
+            </p>
+          </div>
+
+          <div className="bg-white/5 p-8 rounded-3xl border border-white/10">
+            <h3 className="text-2xl font-semibold">
+              Barista – Bo's Coffee
+            </h3>
+
+            <p className="text-blue-400">
+              March 2016 – April 2017
+            </p>
+
+            <p className="mt-3 text-gray-300">
+              Delivered excellent customer service, prepared beverages, and
+              maintained quality standards in a fast-paced environment.
+            </p>
+          </div>
+
+          <div className="bg-white/5 p-8 rounded-3xl border border-white/10">
+            <h3 className="text-2xl font-semibold">
+              Waiter – House of Lechon
+            </h3>
+
+            <p className="text-blue-400">
+              May 2015 – November 2015
+            </p>
+
+            <p className="mt-3 text-gray-300">
+              Provided exceptional dining service and coordinated with team
+              members to ensure customer satisfaction.
+            </p>
+          </div>
+
         </div>
-    </section>
+      </section>
 
-    <!-- Skills Section -->
-    <section class="py-24 bg-slate-900/50 border-t border-slate-800 px-6" id="skills">
-        <div class="max-w-5xl mx-auto">
-            <h2 class="text-3xl font-bold text-center text-white mb-16" data-aos="fade-up">
-                Core <span class="text-brand-accent">Skills</span>
-            </h2>
+      {/* EDUCATION */}
+      <section className="container mx-auto px-6 py-20">
+        <h2 className="text-4xl font-bold mb-10">
+          Education
+        </h2>
 
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
-                <!-- Skill Card -->
-                <div class="bg-brand-card p-6 rounded-xl border border-slate-800 text-center hover:border-brand-accent transition-all duration-300 group" data-aos="fade-up" data-aos-delay="100">
-                    <i class="fa-regular fa-file-word text-3xl text-brand-accent mb-3 group-hover:scale-110 transition-transform"></i>
-                    <h4 class="text-white font-semibold">Microsoft Word</h4>
-                </div>
-                <!-- Skill Card -->
-                <div class="bg-brand-card p-6 rounded-xl border border-slate-800 text-center hover:border-brand-accent transition-all duration-300 group" data-aos="fade-up" data-aos-delay="200">
-                    <i class="fa-regular fa-file-excel text-3xl text-emerald-400 mb-3 group-hover:scale-110 transition-transform"></i>
+        <div className="bg-white/5 rounded-3xl p-8 border border-white/10">
+
+          <h3 className="text-2xl font-semibold">
+            Bachelor of Science in Mechanical Engineering
+          </h3>
+
+          <p className="text-blue-400 mt-2">
+            Cebu Institute of Technology – University
+          </p>
+
+          <p className="text-gray-400">
+            June 2017 – July 2023
+          </p>
+
+        </div>
+      </section>
+
+      {/* SKILLS */}
+      <section className="container mx-auto px-6 py-20">
+        <h2 className="text-4xl font-bold mb-10">
+          Skills
+        </h2>
+
+        <div className="flex flex-wrap gap-4">
+
+          {[
+            "Microsoft Word",
+            "Microsoft Excel",
+            "Microsoft PowerPoint",
+            "Communication",
+            "Problem Solving",
+            "Teamwork",
+            "Time Management",
+            "Customer Service"
+          ].map((skill) => (
+            <span
+              key={skill}
+              className="bg-blue-600/20 border border-blue-500 px-5 py-3 rounded-full"
+            >
+              {skill}
+            </span>
+          ))}
+
+        </div>
+      </section>
+
+      {/* CONTACT */}
+      <section
+        id="contact"
+        className="container mx-auto px-6 py-20"
+      >
+        <h2 className="text-4xl font-bold mb-10">
+          Contact
+        </h2>
+
+        <div className="bg-white/5 p-8 rounded-3xl border border-white/10">
+
+          <p className="mb-4">
+            📧 ivankurt027@gmail.com
+          </p>
+
+          <p>
+            📱 +63 977 061 0448
+          </p>
+
+        </div>
+      </section>
+
+      <footer className="text-center py-8 text-gray-500 border-t border-white/10">
+        © 2026 Ivan Kurt Ponce. All rights reserved.
+      </footer>
+
+    </main>
+  );
+}
